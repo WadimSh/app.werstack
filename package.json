@@ -1,0 +1,27 @@
+{
+  "name": "sso.werstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WadimSh/sso.werstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WadimSh/sso.werstack/issues"
+  },
+  "homepage": "https://github.com/WadimSh/sso.werstack#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
