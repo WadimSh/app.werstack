@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getCookie() {
+  return document.cookie.split('; ').reduce((acc, item) => {
+    const [name, value] = item.split('=')
+    acc[name] = value
+    return acc
+  }, {})
+}
+
+const cookie = getCookie()
+
+console.log(cookie.counter)
+
+console.log(cookie.sidebar)
+  </script>
+</body>
+</html>
