@@ -33,13 +33,13 @@ app.use(session ({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//app.use(express.static(__dirname));
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
   sessions = req.session;
-  console.log(sessions)
   if (sessions.userid) {
-      res.redirect('https://upscience.ru/');
+    res.send("Welcome User <a href=\'/logout'>click to logout</a>");
   } else res.sendFile('./index.html', {root:__dirname})
 });
 
@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
   if(req.body.username == myusername && req.body.password == mypassword){
     sessions = req.session;
     sessions.userid = req.body.username;
-    res.redirect('https://les-sib-rf.ru/');
+    res.redirect('/');
   } else {
     res.send('Invalid username or password');
   }
@@ -58,6 +58,20 @@ app.get('/logout', (req, res) => {
     if (err) throw err;
     res.redirect('/');
   })
+});
+
+app.get('/burger', (req, res) => {
+  sessions = req.session;
+  if (sessions.userid) {
+      res.redirect('https://upscience.ru/');
+  } else res.sendFile('./index.html', {root:__dirname})
+});
+
+app.get('/forest', (req, res) => {
+  sessions = req.session;
+  if (sessions.userid) {
+      res.redirect('https://les-sib-rf.ru/');
+  } else res.sendFile('./index.html', {root:__dirname})
 })
 
 app.listen(PORT);
